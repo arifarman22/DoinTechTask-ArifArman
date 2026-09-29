@@ -1,0 +1,353 @@
+/* Figma-Accurate "Discover Your Passion, Build Your Skills" Section */
+.figma-courses-section {
+  padding: 80px 0 90px 0;
+  background-color: #ffffff;
+  color: #0f172a;
+  width: 100%;
+}
+
+.figma-courses-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Header */
+.figma-courses-header {
+  text-align: center;
+  max-width: 860px;
+  margin: 0 auto 36px auto;
+}
+
+.figma-courses-title {
+  font-family: var(--font-heading, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
+  font-size: 46px;
+  font-weight: 800;
+  line-height: 1.18;
+  letter-spacing: -0.025em;
+  color: #0f172a;
+  margin: 0 0 16px 0;
+}
+
+.figma-courses-subtitle {
+  font-family: var(--font-body, system-ui, sans-serif);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #64748b;
+  margin: 0 auto;
+  max-width: 780px;
+}
+
+/* Category Filter Pills (3 Rows) */
+.figma-pills-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 52px;
+}
+
+.figma-pills-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.figma-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 20px;
+  border-radius: 9999px;
+  font-family: var(--font-body, system-ui, sans-serif);
+  font-size: 14px;
+  font-weight: 500;
+  color: #334155;
+  background-color: #f1f5f9;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+  user-select: none;
+}
+
+.figma-pill-btn:hover {
+  background-color: #e2e8f0;
+  color: #0f172a;
+  transform: translateY(-1px);
+}
+
+.figma-pill-btn.active {
+  background-color: #d4ff00;
+  color: #000000;
+  font-weight: 700;
+  box-shadow: 0 2px 10px rgba(212, 255, 0, 0.35);
+}
+
+.figma-pill-btn.pill-more {
+  color: #003be2;
+  font-weight: 600;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+}
+
+.figma-pill-btn.pill-more:hover {
+  background-color: #f1f5f9;
+  border-color: #cbd5e1;
+}
+
+/* 6 Course Cards Grid */
+.figma-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+/* Course Card */
+.figma-course-card {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 24px;
+  padding: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  position: relative;
+}
+
+.figma-course-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08);
+  border-color: #cbd5e1;
+}
+
+/* Thumbnail Wrap & Image */
+.figma-card-thumb-wrap {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  border-radius: 16px;
+  overflow: hidden;
+  background-color: #f1f5f9;
+}
+
+.figma-card-thumb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.figma-course-card:hover .figma-card-thumb-img {
+  transform: scale(1.04);
+}
+
+/* Overlay Pills along the bottom of the image */
+.figma-card-overlay-pills {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  right: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+  z-index: 3;
+}
+
+.figma-overlay-pill {
+  background: rgba(255, 255, 255, 0.76);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 4px 8px;
+  border-radius: 9999px;
+  font-size: 11px;
+  font-weight: 500;
+  color: #1e293b;
+  white-space: nowrap;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  letter-spacing: -0.01em;
+}
+
+/* Card Body */
+.figma-card-body {
+  padding: 14px 4px 4px 4px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* Title & Rating Row */
+.figma-card-title-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 3px;
+}
+
+.figma-card-title {
+  font-family: var(--font-heading, -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: 17px;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.3;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+}
+
+.figma-card-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #64748b;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.figma-card-rating-star {
+  color: #94a3b8;
+  font-size: 13px;
+}
+
+/* Instructor byline */
+.figma-card-instructor {
+  font-size: 13px;
+  color: #64748b;
+  margin-bottom: 14px;
+}
+
+.figma-instructor-name {
+  color: #2563eb;
+  font-weight: 500;
+}
+
+/* Meta Row (Level + Avatars) */
+.figma-card-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.figma-level-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background-color: #f1f5f9;
+  color: #475569;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.figma-level-badge svg {
+  color: #64748b;
+}
+
+/* Avatar Stack */
+.figma-avatars-stack {
+  display: flex;
+  align-items: center;
+}
+
+.figma-avatar-img {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  margin-left: -6px;
+  object-fit: cover;
+}
+
+.figma-avatar-img:first-child {
+  margin-left: 0;
+}
+
+.figma-avatar-badge {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #d4ff00;
+  color: #000000;
+  font-size: 10px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #ffffff;
+  margin-left: -6px;
+}
+
+/* Price Row */
+.figma-card-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+  margin-top: auto;
+}
+
+.figma-price-val {
+  font-family: var(--font-heading, system-ui, sans-serif);
+  font-size: 20px;
+  font-weight: 800;
+  color: #003be2;
+  letter-spacing: -0.02em;
+}
+
+.figma-price-period {
+  font-size: 13px;
+  font-weight: 500;
+  color: #64748b;
+}
+
+/* Responsive */
+@media (max-width: 1080px) {
+  .figma-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .figma-courses-title {
+    font-size: 38px;
+  }
+}
+
+@media (max-width: 680px) {
+  .figma-courses-section {
+    padding: 50px 0 60px 0;
+  }
+
+  .figma-courses-title {
+    font-size: 28px;
+  }
+
+  .figma-courses-subtitle {
+    font-size: 14px;
+  }
+
+  .figma-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .figma-card-overlay-pills {
+    gap: 2px;
+  }
+
+  .figma-overlay-pill {
+    padding: 3px 6px;
+    font-size: 10px;
+  }
+}

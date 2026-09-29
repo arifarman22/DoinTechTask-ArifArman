@@ -6,9 +6,8 @@ import { Hero } from './components/home/Hero';
 import { PartnerLogos } from './components/home/PartnerLogos';
 import { Categories } from './components/home/Categories';
 import { FeaturedCourses } from './components/home/FeaturedCourses';
-import { WhyUs } from './components/home/WhyUs';
+import { GrowthAndInstructor } from './components/home/GrowthAndInstructor';
 import { HowItWorks } from './components/home/HowItWorks';
-import { InstructorBanner } from './components/home/InstructorBanner';
 import { Testimonials } from './components/home/Testimonials';
 import { Pricing } from './components/home/Pricing';
 import { FAQ } from './components/home/FAQ';
@@ -30,11 +29,9 @@ export function App() {
           <>
             <Hero />
             <PartnerLogos />
-            <Categories />
             <FeaturedCourses />
-            <WhyUs />
-            <HowItWorks />
-            <InstructorBanner />
+            <Categories />
+            <GrowthAndInstructor />
             <Testimonials />
             <Pricing />
             <FAQ />

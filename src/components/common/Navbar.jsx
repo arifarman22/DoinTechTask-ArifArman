@@ -12,7 +12,7 @@ const ByteSpaceNavEmblem = () => (
 );
 
 export const Navbar = () => {
-  const { navigateTo } = useApp();
+  const { navigateTo, user, logoutUser } = useApp();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const handleNavClick = (view, anchorId = null) => {
@@ -55,14 +55,33 @@ export const Navbar = () => {
           </ul>
         </nav>
 
-        {/* Right Actions: Sign In, Join Us, Shopping Bag */}
+        {/* Right Actions: Sign In, Join Us, or Logged In User & Shopping Bag */}
         <div className="navbar-actions">
-          <span className="nav-figma-auth-link" onClick={() => handleNavClick('login')}>
-            Sign In
-          </span>
-          <span className="nav-figma-auth-link" onClick={() => handleNavClick('signup')}>
-            Join Us
-          </span>
+          {user ? (
+            <div className="nav-user-dropdown-wrap">
+              <div className="nav-user-info" title={user.email}>
+                <img src={user.avatar} alt={user.name} className="nav-user-avatar-img" />
+                <span className="nav-user-display-name">{user.name}</span>
+              </div>
+              <button
+                type="button"
+                className="nav-logout-btn"
+                onClick={logoutUser}
+                title="Sign Out"
+              >
+                Sign Out
+              </button>
+            </div>
+          ) : (
+            <>
+              <span className="nav-figma-auth-link" onClick={() => handleNavClick('login')}>
+                Sign In
+              </span>
+              <span className="nav-figma-auth-link" onClick={() => handleNavClick('signup')}>
+                Join Us
+              </span>
+            </>
+          )}
           <button
             className="nav-figma-cart-btn"
             onClick={() => handleNavClick('courses')}
@@ -95,12 +114,38 @@ export const Navbar = () => {
               Creators
             </span>
             <hr style={{ borderColor: 'rgba(255,255,255,0.15)', margin: '4px 0' }} />
-            <span className="nav-figma-auth-link" onClick={() => handleNavClick('login')}>
-              Sign In
-            </span>
-            <span className="nav-figma-auth-link" onClick={() => handleNavClick('signup')}>
-              Join Us
-            </span>
+            {user ? (
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#fff' }}>
+                  <img
+                    src={user.avatar}
+                    alt={user.name}
+                    style={{ width: '28px', height: '28px', borderRadius: '50%', objectFit: 'cover' }}
+                  />
+                  <span style={{ fontWeight: 600 }}>{user.name}</span>
+                </div>
+                <button
+                  type="button"
+                  className="nav-logout-btn"
+                  onClick={() => {
+                    logoutUser();
+                    setMobileMenuOpen(false);
+                  }}
+                  style={{ alignSelf: 'flex-start' }}
+                >
+                  Sign Out
+                </button>
+              </div>
+            ) : (
+              <>
+                <span className="nav-figma-auth-link" onClick={() => handleNavClick('login')}>
+                  Sign In
+                </span>
+                <span className="nav-figma-auth-link" onClick={() => handleNavClick('signup')}>
+                  Join Us
+                </span>
+              </>
+            )}
           </div>
         )}
       </div>

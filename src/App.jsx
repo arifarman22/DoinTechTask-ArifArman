@@ -16,10 +16,11 @@ import { SignupPage } from './components/auth/SignupPage';
 
 export function App() {
   const { currentView } = useApp();
+  const isAuthPage = currentView === 'login' || currentView === 'signup';
 
   return (
     <div className="app-layout">
-      <Navbar />
+      {!isAuthPage && <Navbar />}
 
       <main>
         {currentView === 'home' && (
@@ -39,7 +40,7 @@ export function App() {
         {currentView === 'signup' && <SignupPage />}
       </main>
 
-      <Footer />
+      {!isAuthPage && <Footer />}
       <CourseDetailModal />
       <Toast />
     </div>

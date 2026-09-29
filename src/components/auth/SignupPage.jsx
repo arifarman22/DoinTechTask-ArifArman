@@ -1,15 +1,8 @@
 import { useState } from 'react';
 import { useApp } from '../../context/AppContext';
-import {
-  Layers,
-  User,
-  Mail,
-  Lock,
-  Eye,
-  EyeOff,
-  ArrowRight
-} from 'lucide-react';
-import { GoogleIcon, GithubIcon } from '../common/BrandIcons';
+import { AuthVisualPanel } from './AuthVisualPanel';
+import { AuthBrandLogo, FacebookIcon, GoogleGIcon } from './LoginPage';
+import { ArrowLeft, Eye, EyeOff } from 'lucide-react';
 import '../../styles/auth.css';
 
 export const SignupPage = () => {
@@ -17,191 +10,157 @@ export const SignupPage = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [role, setRole] = useState('student'); // student | instructor
   const [showPassword, setShowPassword] = useState(false);
-  const [agreeTerms, setAgreeTerms] = useState(true);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!name || !email || !password) {
-      showToast('Please fill out all required fields.', 'error');
+      showToast('Please fill in all fields.', 'error');
       return;
     }
     if (password.length < 6) {
       showToast('Password should be at least 6 characters.', 'error');
       return;
     }
-    if (!agreeTerms) {
-      showToast('Please accept the Terms of Service to continue.', 'error');
-      return;
-    }
     signupUser(name, email);
   };
 
   const handleOAuth = (provider) => {
-    signupUser('Alex Developer', `alex@${provider.toLowerCase()}.com`);
-    showToast(`Signed up with ${provider}!`, 'success');
+    signupUser('Alex Morgan', `alex.${provider.toLowerCase()}@example.com`);
+    showToast(`Signed up successfully with ${provider}!`, 'success');
   };
 
   return (
-    <div className="auth-page-wrapper">
-      <div className="auth-card">
-        {/* Header */}
-        <div className="auth-header">
-          <div className="auth-logo-badge" onClick={() => navigateTo('home')} style={{ cursor: 'pointer' }}>
-            <Layers size={26} />
-          </div>
-          <h2 className="auth-title">Welcome to ByteSpace</h2>
-          <p className="auth-subtitle">
-            Join 50,000+ engineers leveling up their coding & design careers
-          </p>
-        </div>
-
-        {/* Role Selector Tabs */}
-        <div
-          style={{
-            display: 'flex',
-            backgroundColor: 'var(--bg-secondary)',
-            padding: '4px',
-            borderRadius: 'var(--radius-md)',
-            marginBottom: '20px'
-          }}
+    <div className="auth-fullscreen-container">
+      {/* Top Header Bar with horizontal grid rule */}
+      <header className="auth-top-header">
+        <AuthBrandLogo onClick={() => navigateTo('home')} />
+        <button
+          type="button"
+          className="auth-back-link"
+          onClick={() => navigateTo('home')}
         >
-          <button
-            type="button"
-            style={{
-              flex: 1,
-              padding: '8px',
-              borderRadius: 'var(--radius-sm)',
-              fontSize: '13px',
-              fontWeight: 600,
-              backgroundColor: role === 'student' ? 'var(--bg-surface)' : 'transparent',
-              color: role === 'student' ? 'var(--primary)' : 'var(--text-secondary)',
-              boxShadow: role === 'student' ? 'var(--shadow-sm)' : 'none'
-            }}
-            onClick={() => setRole('student')}
-          >
-            I want to Learn
-          </button>
-          <button
-            type="button"
-            style={{
-              flex: 1,
-              padding: '8px',
-              borderRadius: 'var(--radius-sm)',
-              fontSize: '13px',
-              fontWeight: 600,
-              backgroundColor: role === 'instructor' ? 'var(--bg-surface)' : 'transparent',
-              color: role === 'instructor' ? 'var(--primary)' : 'var(--text-secondary)',
-              boxShadow: role === 'instructor' ? 'var(--shadow-sm)' : 'none'
-            }}
-            onClick={() => setRole('instructor')}
-          >
-            I want to Teach
-          </button>
-        </div>
+          <ArrowLeft size={16} />
+          <span>Back to Home</span>
+        </button>
+      </header>
 
-        {/* Social Auth */}
-        <div className="oauth-buttons-row">
-          <button className="btn-oauth" onClick={() => handleOAuth('Google')}>
-            <GoogleIcon size={18} />
-            <span>Google</span>
-          </button>
-          <button className="btn-oauth" onClick={() => handleOAuth('GitHub')}>
-            <GithubIcon size={18} />
-            <span>GitHub</span>
-          </button>
-        </div>
+      {/* Main Content Area: Left Visuals & Right Card */}
+      <main className="auth-content-body">
+        {/* Left Visual Panel with Course Cards & 3D Elements */}
+        <AuthVisualPanel
+          title="Sign up with ease"
+          subtitle="Experience a seamless and efficient registration process that grants you instant access to a world of knowledge."
+        />
 
-        <div className="auth-divider">
-          <div className="auth-divider-line" />
-          <span className="auth-divider-text">Or register with email</span>
-          <div className="auth-divider-line" />
-        </div>
+        {/* Right Auth Card */}
+        <div className="auth-card-container">
+          <div className="auth-white-card">
+            <span className="auth-card-tag">Sign Up</span>
+            <h2 className="auth-card-heading">Create Account</h2>
 
-        {/* Signup Form */}
-        <form onSubmit={handleSubmit} className="auth-form">
-          <div className="form-group">
-            <label className="form-label">Full Name</label>
-            <div className="form-input-wrap">
-              <User size={16} className="form-icon-left" />
-              <input
-                type="text"
-                className="form-input"
-                placeholder="Jane Doe"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                required
-              />
+            <form onSubmit={handleSubmit} className="auth-form-fields">
+              <div className="auth-input-group">
+                <label className="auth-input-label" htmlFor="signup-name">
+                  Full Name
+                </label>
+                <input
+                  id="signup-name"
+                  type="text"
+                  className="auth-text-input"
+                  placeholder="Alex Morgan"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  required
+                />
+              </div>
+
+              <div className="auth-input-group">
+                <label className="auth-input-label" htmlFor="signup-email">
+                  Email
+                </label>
+                <input
+                  id="signup-email"
+                  type="email"
+                  className="auth-text-input"
+                  placeholder="designer@example.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+              </div>
+
+              <div className="auth-input-group">
+                <label className="auth-input-label" htmlFor="signup-password">
+                  Password
+                </label>
+                <div className="auth-password-wrapper">
+                  <input
+                    id="signup-password"
+                    type={showPassword ? 'text' : 'password'}
+                    className="auth-text-input"
+                    placeholder="*********"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                  />
+                  <button
+                    type="button"
+                    className="auth-password-toggle"
+                    onClick={() => setShowPassword(!showPassword)}
+                    aria-label={showPassword ? 'Hide password' : 'Show password'}
+                  >
+                    {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
+                  </button>
+                </div>
+              </div>
+
+              <div className="auth-btn-row">
+                <button type="submit" className="auth-lime-pill-btn">
+                  Sign Up
+                </button>
+              </div>
+            </form>
+
+            <div className="auth-middle-divider">
+              <div className="auth-divider-line" />
+              <span className="auth-divider-text">or</span>
+              <div className="auth-divider-line" />
             </div>
-          </div>
 
-          <div className="form-group">
-            <label className="form-label">Email Address</label>
-            <div className="form-input-wrap">
-              <Mail size={16} className="form-icon-left" />
-              <input
-                type="email"
-                className="form-input"
-                placeholder="name@example.com"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
-            </div>
-          </div>
-
-          <div className="form-group">
-            <label className="form-label">Password</label>
-            <div className="form-input-wrap">
-              <Lock size={16} className="form-icon-left" />
-              <input
-                type={showPassword ? 'text' : 'password'}
-                className="form-input"
-                placeholder="At least 6 characters"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-              />
+            <div className="auth-social-row">
               <button
                 type="button"
-                className="form-icon-toggle"
-                onClick={() => setShowPassword(!showPassword)}
-                tabIndex={-1}
+                className="auth-social-circle-btn"
+                onClick={() => handleOAuth('Facebook')}
+                aria-label="Sign up with Facebook"
+                title="Sign up with Facebook"
               >
-                {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
+                <FacebookIcon />
+              </button>
+              <button
+                type="button"
+                className="auth-social-circle-btn"
+                onClick={() => handleOAuth('Google')}
+                aria-label="Sign up with Google"
+                title="Sign up with Google"
+              >
+                <GoogleGIcon />
               </button>
             </div>
-          </div>
 
-          <div>
-            <label style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', cursor: 'pointer', fontSize: '13px' }}>
-              <input
-                type="checkbox"
-                checked={agreeTerms}
-                onChange={(e) => setAgreeTerms(e.target.checked)}
-                style={{ marginTop: '3px' }}
-              />
-              <span style={{ color: 'var(--text-secondary)' }}>
-                I agree to the <span style={{ color: 'var(--primary)' }}>Terms of Service</span> and{' '}
-                <span style={{ color: 'var(--primary)' }}>Privacy Policy</span>
+            <p className="auth-switch-prompt">
+              Already have an account?{' '}
+              <span
+                className="auth-switch-link"
+                onClick={() => navigateTo('login')}
+              >
+                Sign In
               </span>
-            </label>
+            </p>
           </div>
-
-          <button type="submit" className="btn btn-primary btn-lg" style={{ width: '100%', marginTop: '4px' }}>
-            Create ByteSpace Account
-            <ArrowRight size={18} />
-          </button>
-        </form>
-
-        <p className="auth-switch-text">
-          Already have an account?
-          <span className="auth-switch-link" onClick={() => navigateTo('login')}>
-            Log In
-          </span>
-        </p>
-      </div>
+        </div>
+      </main>
     </div>
   );
 };

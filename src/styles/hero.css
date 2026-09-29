@@ -127,15 +127,15 @@
 /* Neon Lime Backdrop Circle matching Figma screenshot */
 .hero-lime-backdrop-circle {
   position: absolute;
-  bottom: -460px;
+  bottom: -360px;
   left: 50%;
   transform: translateX(-50%);
-  width: 960px;
-  height: 960px;
+  width: 820px;
+  height: 820px;
   background-color: var(--neon-lime);
   border-radius: 50%;
   z-index: 1;
-  box-shadow: 0 0 90px rgba(212, 255, 0, 0.35);
+  box-shadow: 0 0 80px rgba(212, 255, 0, 0.35);
   pointer-events: none;
 }
 
@@ -356,9 +356,9 @@
 /* Responsive */
 @media (max-width: 1200px) {
   .hero-lime-backdrop-circle {
-    width: 860px;
-    height: 860px;
-    bottom: -410px;
+    width: 740px;
+    height: 740px;
+    bottom: -330px;
   }
 }
 
@@ -372,9 +372,9 @@
   }
 
   .hero-lime-backdrop-circle {
-    width: 720px;
-    height: 720px;
-    bottom: -360px;
+    width: 620px;
+    height: 620px;
+    bottom: -280px;
   }
 
   .hero-student-wrapper {
@@ -432,10 +432,10 @@
   .hero-lime-backdrop-circle {
     position: relative;
     bottom: 0;
-    width: 340px;
-    height: 340px;
-    margin-bottom: -170px;
-    border-radius: 170px 170px 0 0;
+    width: 300px;
+    height: 300px;
+    margin-bottom: -150px;
+    border-radius: 150px 150px 0 0;
   }
 
   .hero-student-wrapper {

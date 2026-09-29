@@ -1,0 +1,450 @@
+/* Figma-Accurate Hero_Frame Styling (#003BE2 Persian Blue & #D4FF00 Neon Lime) */
+:root {
+  --persian-blue: #003be2;
+  --neon-lime: #d4ff00;
+  --neon-lime-hover: #c2eb00;
+}
+
+.hero-figma-frame {
+  position: relative;
+  background-color: var(--persian-blue);
+  /* Blueprint Grid Pattern */
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.12) 1px, transparent 1px);
+  background-size: 72px 72px;
+  background-position: center top;
+  color: #ffffff;
+  padding-top: 60px;
+  padding-bottom: 0px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.hero-figma-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+/* Typography */
+.hero-figma-headline {
+  font-family: var(--font-heading);
+  font-size: 56px;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  color: #ffffff;
+  margin: 0 0 16px 0;
+  max-width: 850px;
+}
+
+.hero-figma-subtitle {
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.92);
+  max-width: 680px;
+  margin: 0 auto 36px auto;
+}
+
+/* Standalone Input Pill + Standalone Search Button Pill */
+.hero-figma-search-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  max-width: 580px;
+  margin-bottom: 40px;
+  position: relative;
+  z-index: 20;
+}
+
+.hero-figma-search-input-wrap {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: #ffffff;
+  border-radius: 9999px;
+  padding: 12px 24px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+}
+
+.hero-figma-search-input {
+  width: 100%;
+  border: none;
+  background: transparent;
+  color: #0f172a;
+  font-size: 15px;
+  font-weight: 500;
+  outline: none;
+}
+
+.hero-figma-search-input::placeholder {
+  color: #94a3b8;
+}
+
+.hero-figma-search-btn {
+  background-color: var(--neon-lime);
+  color: #000000;
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 700;
+  padding: 13px 34px;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+}
+
+.hero-figma-search-btn:hover {
+  background-color: var(--neon-lime-hover);
+  transform: scale(1.04);
+}
+
+/* Central Visual Area */
+.hero-figma-visual-area {
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  height: 520px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin-top: 10px;
+}
+
+/* Neon Lime Backdrop Circle matching Figma screenshot */
+.hero-lime-backdrop-circle {
+  position: absolute;
+  bottom: -360px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 820px;
+  height: 820px;
+  background-color: var(--neon-lime);
+  border-radius: 50%;
+  z-index: 1;
+  box-shadow: 0 0 80px rgba(212, 255, 0, 0.35);
+  pointer-events: none;
+}
+
+/* Student Photo Cutout */
+.hero-student-wrapper {
+  position: relative;
+  z-index: 2;
+  width: 420px;
+  max-width: 90%;
+  height: 520px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.hero-student-img {
+  width: auto;
+  height: 100%;
+  max-height: 520px;
+  object-fit: cover;
+  object-position: top center;
+  filter: drop-shadow(0 16px 28px rgba(0, 0, 0, 0.25));
+}
+
+/* Floating Overlaid Badges */
+.hero-overlay-card {
+  position: absolute;
+  background-color: #ffffff;
+  color: #0f172a;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.22);
+  z-index: 15;
+  text-align: left;
+  backdrop-filter: blur(10px);
+  animation: floatFigma 4.5s ease-in-out infinite alternate;
+}
+
+/* Card 1: UI/UX Design (Top-Left of student) */
+.card-uiux {
+  top: 36%;
+  left: 20%;
+  border-radius: 16px;
+  padding: 12px 18px;
+  min-width: 160px;
+}
+
+.card-uiux-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 2px;
+}
+
+.card-uiux-meta {
+  font-size: 11px;
+  color: #64748b;
+  font-weight: 500;
+}
+
+/* Card 2: Learning Progress (Top-Right of student) */
+.card-progress {
+  top: 38%;
+  right: 18%;
+  min-width: 170px;
+  border-radius: 16px;
+  padding: 14px 20px;
+  animation-delay: 1.5s;
+}
+
+.card-progress-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: #64748b;
+  margin-bottom: 4px;
+}
+
+.card-progress-val {
+  font-size: 32px;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+
+.card-progress-bar-track {
+  width: 100%;
+  height: 6px;
+  background-color: #e2e8f0;
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.card-progress-bar-fill {
+  width: 55%;
+  height: 100%;
+  background-color: #d4ff00; /* Neon Lime matching Figma screenshot */
+  border-radius: 9999px;
+}
+
+/* Card 3: Happy Students (Bottom-Left) */
+.card-students {
+  bottom: 8%;
+  left: 14%;
+  border-radius: 18px;
+  padding: 14px 18px;
+  animation-delay: 2.5s;
+}
+
+.card-students-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 3px;
+}
+
+.card-students-rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #64748b;
+  margin-bottom: 8px;
+}
+
+.card-students-rating strong {
+  color: #0f172a;
+}
+
+.card-avatars-row {
+  display: flex;
+  align-items: center;
+}
+
+.card-student-avatar {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  margin-left: -7px;
+  object-fit: cover;
+}
+
+.card-student-avatar:first-child {
+  margin-left: 0;
+}
+
+.card-avatars-badge {
+  background-color: #d4ff00;
+  color: #000000;
+  font-size: 10px;
+  font-weight: 800;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #ffffff;
+  margin-left: -7px;
+}
+
+/* 3D Decorative Floating Ornaments */
+.ornament {
+  position: absolute;
+  pointer-events: none;
+  z-index: 5;
+  filter: drop-shadow(0 14px 24px rgba(0, 0, 0, 0.28));
+  animation: floatOrnament 6s ease-in-out infinite alternate;
+}
+
+.ornament-left-zigzag {
+  top: 8%;
+  left: -20px;
+  transform: rotate(-15deg);
+}
+
+.ornament-left-white-zigzag {
+  top: 36%;
+  left: 50px;
+  animation-delay: 1.5s;
+}
+
+.ornament-left-donut {
+  bottom: 8%;
+  left: -50px;
+  animation-delay: 2s;
+}
+
+.ornament-right-cylinder {
+  top: 6%;
+  right: -20px;
+  transform: rotate(20deg);
+  animation-delay: 1s;
+}
+
+.ornament-right-cone {
+  top: 38%;
+  right: 50px;
+  animation-delay: 3s;
+}
+
+.ornament-right-zigzag {
+  bottom: 12%;
+  right: -30px;
+  animation-delay: 2.5s;
+}
+
+@keyframes floatFigma {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-8px); }
+}
+
+@keyframes floatOrnament {
+  0% { transform: translateY(0px) rotate(0deg); }
+  100% { transform: translateY(-12px) rotate(4deg); }
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .hero-lime-backdrop-circle {
+    width: 740px;
+    height: 740px;
+    bottom: -330px;
+  }
+}
+
+@media (max-width: 992px) {
+  .hero-figma-headline {
+    font-size: 40px;
+  }
+
+  .hero-figma-visual-area {
+    height: 460px;
+  }
+
+  .hero-lime-backdrop-circle {
+    width: 620px;
+    height: 620px;
+    bottom: -280px;
+  }
+
+  .hero-student-wrapper {
+    width: 360px;
+    height: 440px;
+  }
+
+  .card-uiux {
+    left: 8%;
+  }
+
+  .card-progress {
+    right: 8%;
+  }
+
+  .card-students {
+    left: 4%;
+  }
+
+  .ornament-left-zigzag,
+  .ornament-right-cylinder {
+    transform: scale(0.8);
+  }
+}
+
+@media (max-width: 680px) {
+  .hero-figma-headline {
+    font-size: 32px;
+  }
+
+  .hero-figma-subtitle {
+    font-size: 14px;
+  }
+
+  .hero-figma-search-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-figma-search-btn {
+    width: 100%;
+  }
+
+  .hero-overlay-card {
+    position: static;
+    margin: 8px 0;
+  }
+
+  .hero-figma-visual-area {
+    height: auto;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-lime-backdrop-circle {
+    position: relative;
+    bottom: 0;
+    width: 300px;
+    height: 300px;
+    margin-bottom: -150px;
+    border-radius: 150px 150px 0 0;
+  }
+
+  .hero-student-wrapper {
+    width: 280px;
+    height: 320px;
+    margin-top: -140px;
+  }
+
+  .ornament {
+    display: none;
+  }
+}

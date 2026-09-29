@@ -1,0 +1,154 @@
+/* Figma Persian Blue Creator Stripe Banner */
+.creator-stripe-section {
+  position: relative;
+  background-color: #003be2;
+  /* Blueprint Grid Pattern matching Hero */
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.12) 1px, transparent 1px);
+  background-size: 72px 72px;
+  background-position: center top;
+  color: #ffffff;
+  padding: 95px 24px 105px 24px;
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.creator-stripe-container {
+  max-width: 860px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.creator-stripe-headline {
+  font-family: var(--font-heading, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
+  font-size: 46px;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  color: #ffffff;
+  margin: 0 0 18px 0;
+}
+
+.creator-stripe-subtext {
+  font-family: var(--font-body, system-ui, sans-serif);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.92);
+  max-width: 780px;
+  margin: 0 auto 34px auto;
+}
+
+.creator-stripe-btn {
+  background-color: #d4ff00;
+  color: #000000;
+  font-family: var(--font-heading, system-ui, sans-serif);
+  font-size: 15px;
+  font-weight: 700;
+  padding: 14px 36px;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.2);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.creator-stripe-btn:hover {
+  background-color: #e2ff38;
+  transform: scale(1.04);
+  box-shadow: 0 6px 24px rgba(212, 255, 0, 0.45);
+}
+
+/* 3D Floating Ornaments */
+.stripe-ornament {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+  filter: drop-shadow(0 14px 24px rgba(0, 0, 0, 0.3));
+}
+
+.stripe-tl-zigzag {
+  top: -20px;
+  left: 20px;
+  animation: floatOrnament 6s ease-in-out infinite alternate;
+}
+
+.stripe-tl-white-zigzag {
+  top: 30px;
+  left: 170px;
+  animation: floatOrnament 5.5s ease-in-out infinite alternate 1s;
+}
+
+.stripe-bl-cone {
+  bottom: -20px;
+  left: 10px;
+  animation: floatOrnament 7s ease-in-out infinite alternate 2s;
+}
+
+.stripe-bl-donut {
+  bottom: -40px;
+  left: 70px;
+  animation: floatOrnament 6.5s ease-in-out infinite alternate 1.5s;
+}
+
+.stripe-tr-cone {
+  top: 15px;
+  right: 170px;
+  animation: floatOrnament 6s ease-in-out infinite alternate 0.5s;
+}
+
+.stripe-tr-cylinder {
+  top: -30px;
+  right: 20px;
+  animation: floatOrnament 5.5s ease-in-out infinite alternate 2.5s;
+}
+
+.stripe-br-zigzag {
+  bottom: -40px;
+  right: 20px;
+  animation: floatOrnament 6.5s ease-in-out infinite alternate 1.8s;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .creator-stripe-section {
+    padding: 75px 20px 85px 20px;
+  }
+
+  .creator-stripe-headline {
+    font-size: 36px;
+  }
+
+  .stripe-tl-white-zigzag,
+  .stripe-tr-cone {
+    display: none;
+  }
+}
+
+@media (max-width: 680px) {
+  .creator-stripe-section {
+    padding: 60px 16px 70px 16px;
+  }
+
+  .creator-stripe-headline {
+    font-size: 28px;
+  }
+
+  .creator-stripe-subtext {
+    font-size: 14px;
+  }
+
+  .stripe-ornament {
+    opacity: 0.6;
+    transform: scale(0.7);
+  }
+}

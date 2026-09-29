@@ -7,6 +7,7 @@ import { PartnerLogos } from './components/home/PartnerLogos';
 import { Categories } from './components/home/Categories';
 import { FeaturedCourses } from './components/home/FeaturedCourses';
 import { GrowthAndInstructor } from './components/home/GrowthAndInstructor';
+import { CreatorStripe } from './components/home/CreatorStripe';
 import { HowItWorks } from './components/home/HowItWorks';
 import { Testimonials } from './components/home/Testimonials';
 import { Pricing } from './components/home/Pricing';
@@ -32,6 +33,7 @@ export function App() {
             <FeaturedCourses />
             <Categories />
             <GrowthAndInstructor />
+            <CreatorStripe />
             <Testimonials />
             <Pricing />
             <FAQ />

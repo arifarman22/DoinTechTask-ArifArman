@@ -84,3 +84,45 @@ export const WhiteZigzag = () => (
     </defs>
   </svg>
 );
+
+export const LimeDonut = () => (
+  <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
+    <ellipse cx="60" cy="60" rx="52" ry="52" fill="url(#limeDonutGrad)" />
+    <ellipse cx="60" cy="60" rx="24" ry="24" fill="#003BE2" />
+    <defs>
+      <linearGradient id="limeDonutGrad" x1="15" y1="15" x2="105" y2="105" gradientUnits="userSpaceOnUse">
+        <stop stopColor="#E8FF54" />
+        <stop offset="0.6" stopColor="#D4FF00" />
+        <stop offset="1" stopColor="#95C800" />
+      </linearGradient>
+    </defs>
+  </svg>
+);
+
+export const LimeCone = () => (
+  <svg width="90" height="110" viewBox="0 0 90 110" fill="none">
+    <path d="M45 8 L82 85 C82 96 8 96 8 85 Z" fill="url(#limeConeGrad)" />
+    <ellipse cx="45" cy="85" rx="36" ry="11" fill="#B2E000" opacity="0.6" />
+    <defs>
+      <linearGradient id="limeConeGrad" x1="45" y1="8" x2="82" y2="85" gradientUnits="userSpaceOnUse">
+        <stop stopColor="#F4FF70" />
+        <stop offset="0.5" stopColor="#D4FF00" />
+        <stop offset="1" stopColor="#8EBC00" />
+      </linearGradient>
+    </defs>
+  </svg>
+);
+
+export const WhiteCylinder = () => (
+  <svg width="120" height="150" viewBox="0 0 120 150" fill="none">
+    <path d="M15 40 C15 20 105 20 105 40 L105 110 C105 130 15 130 15 110 Z" fill="url(#whiteCylinderBody)" />
+    <ellipse cx="60" cy="40" rx="45" ry="18" fill="#FFFFFF" />
+    <defs>
+      <linearGradient id="whiteCylinderBody" x1="15" y1="60" x2="105" y2="60" gradientUnits="userSpaceOnUse">
+        <stop stopColor="#FFFFFF" />
+        <stop offset="0.5" stopColor="#E2E8F0" />
+        <stop offset="1" stopColor="#94A3B8" />
+      </linearGradient>
+    </defs>
+  </svg>
+);

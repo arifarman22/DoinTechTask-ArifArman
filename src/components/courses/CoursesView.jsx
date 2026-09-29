@@ -3,6 +3,7 @@ import { useApp } from '../../context/AppContext';
 import { COURSES_DATA, CATEGORIES_DATA } from '../../data/coursesData';
 import { CourseCard } from '../home/CourseCard';
 import { Search, Filter, SlidersHorizontal, BookOpen, X } from 'lucide-react';
+import '../../styles/courses.css';
 
 export const CoursesView = () => {
   const { searchQuery, setSearchQuery, selectedCategory, setSelectedCategory, wishlist, enrolledCourses } = useApp();

@@ -6,8 +6,9 @@
 
 > Frontend Assessment Project for **Jr. Software Engineer (Frontend)**  
 > **Candidate Tracking ID**: `58baefd3-b9a7-45a5-a820-226111ff73ee`  
+> **GitHub Repository**: [arifarman22/DoinTechTask-ArifArman](https://github.com/arifarman22/DoinTechTask-ArifArman)  
 > **Figma Design Reference**: [ByteSpace New Check website](https://www.figma.com/design/26TBgRjmpuxudcErJsHUfy/ByteSpace-New-Check-website?node-id=0-1&p=f&t=eQOrqJmq6rMG5b6L-0)  
-> **Live Deployment**: *[Deploy to Vercel]*
+> **Pull Request**: [View PR on GitHub](https://github.com/arifarman22/DoinTechTask-ArifArman/pull/new/feature/bytespace-redesign)
 
 ---
 
@@ -17,22 +18,37 @@
 
 ---
 
+## 🛠️ Technology Stack
+
+| Layer | Technology | Details |
+|---|---|---|
+| **Core Framework** | **React 19** (`v19.2.8`) | Modern component architecture, React hooks (`useState`, `useEffect`, `useMemo`, `useCallback`) |
+| **Build Tool & Bundler** | **Vite 8** (`v8.3.0`) | Lightning-fast development server with instant Hot Module Replacement (HMR) and optimized rollup production bundles |
+| **Styling** | **Modular Vanilla CSS3** | Component-scoped CSS with CSS Custom Properties (tokens), CSS Grid, Flexbox, glassmorphism (`backdrop-filter`), keyframe animations, and blueprint overlay grids |
+| **Typography** | **Google Fonts** | **Outfit** (hero titles, headings, badges) and **Inter** (body copy, form labels, and UI controls) |
+| **Iconography** | **Lucide React** (`v1.48.0`) & Custom SVGs | Clean, accessible vector icons plus custom inline SVG geometry for Figma 3D ornaments and brand logos (Google, Meta, Spotify, Stripe, Apple) |
+| **State & Persistence** | **React Context + LocalStorage** | Zero-dependency reactive state management with client-side persistence for auth session, dark/light theme, and wishlist |
+| **Linter & Code Quality** | **Oxlint** (`v1.81.0`) | High-speed static analysis and linting |
+| **Deployment** | **Vercel** | Production deployment configuration with [`vercel.json`](./vercel.json) client-side rewrite rules |
+
+---
+
 ## ✨ Features Implemented
 
-### 1. Landing Page (Required)
-- **Sticky Glassmorphism Header**:
-  - Custom ByteSpace brand logo & emblem
-  - Navigation links with active status indicators
-  - Live search input with instant query routing
-  - Light/Dark mode theme switch toggle with local persistence
-  - Interactive Wishlist indicator with dynamic badge count
+### 1. Pixel-Perfect Figma Landing Page
+- **Persian Blue Blueprint Grid Header & Navbar**:
+  - Exact `#003BE2` brand background with 40px subtle blueprint grid
+  - 3-part layout: Left brand emblem & wordmark, center pill menu with active state indicator, and right action pills (Login, Get Started)
   - Responsive mobile drawer menu with smooth open/close transitions
-- **Hero Section**:
-  - Eyebrow badge: *"Next-Gen Tech Learning Platform 2026"*
-  - High-impact typography with brand gradient text
-  - Live search bar with category selector dropdown
-  - Social proof with student avatar stack, star ratings, and metrics
-  - Floating animated stat cards (*500+ Verified Courses*, *96% Career Placement*)
+  - User session state indicator with avatar, display name, and quick logout
+- **Figma Hero Section (`Hero_Frame`)**:
+  - Eyebrow pill badge: *"Next-Gen Tech Learning Platform 2026"*
+  - High-impact typography with brand gradient text and live category search pill
+  - **Figma Visual Cutout Stage**:
+    - Neon lime (`#D4FF00`) backdrop circle with ambient glow
+    - Transparent student cutout photograph
+    - Floating animated stat cards (*500+ Verified Courses*, *96% Career Placement*)
+    - Custom Figma 3D geometric ornaments (floating green prism, orange cylinder, purple torus, 3D stars)
 - **Trusted Partners Bar**:
   - Partner showcase featuring Google, Microsoft, Amazon, Meta, Spotify, and Stripe
 - **Popular Categories Explorer**:
@@ -47,27 +63,29 @@
   - 4 key pillars: Industry-Led Curriculum, Real Production Projects, 1-on-1 Code Reviews, and Verified Certificates
 - **How It Works (4-Step Learning Roadmap)**:
   - Step-by-step progression from track selection to career placement
-- **Instructor Partner Banner**:
+- **Persian Blue Creator Stripe Banner**:
   - Creator callout with key benefits (85% revenue share, sandbox tooling) and CTA
-- **Community Testimonials**:
+- **Figma Community Testimonials**:
   - Authenticated student reviews with star ratings, avatars, and company roles
-- **Pricing & Subscription Plans**:
-  - Monthly / Annual billing toggle with animated switch and *"Save 20%"* badge
-  - Starter (Free), Pro Learner (Most Popular), and Enterprise tiers
-- **Frequently Asked Questions (FAQ)**:
-  - Accordion interaction with animated chevrons
-- **Bottom Call-to-Action (CTA)**:
-  - High-converting conversion banner with instant enrollment buttons
-- **Comprehensive Footer**:
-  - Brand mission, learning tracks, resources, company links, and live newsletter subscription form with validation
+- **Figma Footer Matching Screenshot**:
+  - Persian Blue blueprint grid canvas with 3D star ornament, brand mission, learning tracks, resources, company links, and live newsletter subscription form with validation
 
-### 2. Bonus Pages & Extra Features (Extra Credit)
-- **Login Page (`#login`)**:
-  - Clean card layout with Google and GitHub OAuth options
-  - Email/password validation, show/hide password toggle, and remember-me checkbox
-- **Signup Page (`#signup`)**:
-  - Learner vs. Instructor role switcher tabs
-  - Full name, email, password strength, and Terms of Service consent
+### 2. Figma Split-Screen Authentication Views
+- **Visual Left Panel (`AuthVisualPanel`)**:
+  - Persian Blue (`#003BE2`) blueprint canvas with 3D geometric ornaments
+  - Circular avatar stack with glowing badges
+  - Floating course pill cards (*Fullstack Development*, *UI/UX Design Masterclass*)
+- **Login View (`#login`)**:
+  - Floating white card with rounded borders (32px radius) and elevation shadow
+  - Email and password inputs with custom toggle for password visibility
+  - Neon lime pill button: *"Log in"*
+  - Social OAuth buttons (Google, Apple, Facebook)
+- **Signup View (`#signup`)**:
+  - Floating white card with Name, Email, Password, and Confirm Password fields
+  - Neon lime pill button: *"Sign up"*
+  - Seamless toggle link to switch back to Login
+
+### 3. Bonus Pages & Extra Features
 - **Dedicated Courses Catalog (`#courses`)**:
   - Real-time text search across course titles, topics, and instructors
   - Multi-attribute filtering (Category, Difficulty Level, Sorting by price/rating)
@@ -80,21 +98,7 @@
 - **Theme Switcher**:
   - Dark Mode and Light Mode support with tailored HSL/hex palettes saved to `localStorage`
 - **Global Toast Notification System**:
-  - Feedback for enrollment, wishlist updates, newsletter subscriptions, and authentication actions
-
----
-
-## 🛠️ Technology Stack
-
-| Layer | Technology |
-|---|---|
-| **Framework** | React 19 (Hooks, Context API, Components) |
-| **Build Tool** | Vite 8.3 (Blazing fast HMR and sub-second builds) |
-| **Styling** | Vanilla CSS with Design Tokens & CSS Custom Properties |
-| **Typography** | Plus Jakarta Sans & Inter (Google Fonts) |
-| **Iconography** | Lucide React & Custom SVG Brand Icons |
-| **Version Control**| Git with Feature Branching (`feature/bytespace-redesign`) |
-| **Deployment** | Vercel (Production-ready static deployment) |
+  - Instant visual feedback for enrollment, wishlist updates, newsletter subscriptions, and authentication actions
 
 ---
 
@@ -104,42 +108,41 @@
 src/
 ├── components/
 │   ├── common/
-│   │   ├── Navbar.jsx          # Sticky header & responsive menu
-│   │   ├── Footer.jsx          # Footer & newsletter form
-│   │   ├── BrandIcons.jsx      # Social & provider SVG icons
+│   │   ├── Navbar.jsx          # Sticky Persian Blue header & responsive drawer
+│   │   ├── Footer.jsx          # Figma Persian Blue footer & newsletter
+│   │   ├── BrandIcons.jsx      # Social, provider & Figma 3D SVG ornaments
 │   │   └── Toast.jsx           # Global notification toast
 │   ├── home/
-│   │   ├── Hero.jsx            # Hero section & search
+│   │   ├── Hero.jsx            # Figma Hero frame with lime backdrop & cutout
 │   │   ├── PartnerLogos.jsx    # Company logos marquee
 │   │   ├── Categories.jsx      # Learning path cards
-│   │   ├── FeaturedCourses.jsx # Course grid with tabs
+│   │   ├── FeaturedCourses.jsx # Course grid with category tabs
 │   │   ├── CourseCard.jsx      # Reusable course card
 │   │   ├── WhyUs.jsx           # Value proposition
 │   │   ├── HowItWorks.jsx      # 4-step roadmap
 │   │   ├── InstructorBanner.jsx# Creator recruitment banner
 │   │   ├── Testimonials.jsx    # Student success reviews
-│   │   ├── Pricing.jsx         # Subscription tiers & toggle
-│   │   ├── FAQ.jsx             # Expandable accordion
 │   │   └── CTASection.jsx      # Bottom conversion banner
 │   ├── courses/
 │   │   ├── CourseDetailModal.jsx # Preview & syllabus modal
 │   │   └── CoursesView.jsx     # Full catalog with multi-filters
 │   └── auth/
-│       ├── LoginPage.jsx       # Login view
-│       └── SignupPage.jsx      # Registration view
+│       ├── AuthVisualPanel.jsx # Left Persian Blue 3D visual showcase
+│       ├── LoginPage.jsx       # Figma white card login view
+│       └── SignupPage.jsx      # Figma white card signup view
 ├── context/
-│   └── AppContext.jsx          # State, navigation, auth, theme, wishlist
+│   └── AppContext.jsx          # Global state (auth, navigation, theme, wishlist)
 ├── data/
-│   └── coursesData.js          # Structured course & review data
+│   └── coursesData.js          # Course data, categories, and reviews
 ├── styles/
-│   ├── index.css               # Design tokens, reset, typography
-│   ├── navbar.css              # Header styles
-│   ├── hero.css                # Hero section styles
+│   ├── index.css               # Design tokens, reset, typography, utilities
+│   ├── navbar.css              # Header & drawer styles
+│   ├── hero.css                # Figma hero frame, lime backdrop & 3D ornaments
 │   ├── categories.css          # Categories grid styles
 │   ├── courses.css             # Course cards styles
-│   ├── sections.css            # Content section styles
+│   ├── sections.css            # Content section styles & blueprint backgrounds
 │   ├── modal.css               # Course modal preview styles
-│   ├── auth.css                # Auth card & form styles
+│   ├── auth.css                # Split-screen auth layout & white card forms
 │   └── footer.css              # Footer styles
 ├── App.jsx                     # Root application view coordinator
 └── main.jsx                    # Application entrypoint
@@ -157,8 +160,8 @@ src/
 
 1. **Clone the repository**:
    ```bash
-   git clone <repository-url>
-   cd "DoinTech Task"
+   git clone https://github.com/arifarman22/DoinTechTask-ArifArman.git
+   cd DoinTechTask-ArifArman
    ```
 
 2. **Install dependencies**:
@@ -184,7 +187,8 @@ src/
 As instructed in the assessment criteria, development is carried out on a dedicated branch:
 - **Default Branch**: `main`
 - **Feature Branch**: `feature/bytespace-redesign`
-- **Pull Request**: Created from `feature/bytespace-redesign` into `main` for code review.
+- **Pull Request**: Created from `feature/bytespace-redesign` into `main` for code review:
+  👉 [Create / View Pull Request](https://github.com/arifarman22/DoinTechTask-ArifArman/pull/new/feature/bytespace-redesign)
 
 ---
 

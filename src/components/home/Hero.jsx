@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useApp } from '../../context/AppContext';
-import { Search, PenTool, Star } from 'lucide-react';
+import { Search, Star } from 'lucide-react';
 import studentHeroImg from '../../assets/student-hero.png';
 import {
   LimeZigzag,
@@ -26,7 +26,7 @@ export const Hero = () => {
   return (
     <section className="hero-figma-frame" id="hero-frame">
       <div className="hero-figma-container">
-        {/* Main Headline */}
+        {/* Main Headline matching Figma */}
         <h1 className="hero-figma-headline">
           Get Access to Hundreds <br />
           Courses Available
@@ -34,11 +34,10 @@ export const Hero = () => {
 
         {/* Subtitle */}
         <p className="hero-figma-subtitle">
-          Unlock your creativity, gain valuable knowledge, and grow your business with our wide range
-          of courses.
+          Unlock your creativity, gain valuable knowledge, and grow your business with our wide range of courses.
         </p>
 
-        {/* Search Bar */}
+        {/* Standalone Input Pill + Standalone Search Button Pill */}
         <form className="hero-figma-search-bar" onSubmit={handleSearchSubmit}>
           <div className="hero-figma-search-input-wrap">
             <Search size={18} color="#94A3B8" />
@@ -57,15 +56,18 @@ export const Hero = () => {
 
         {/* Central Graphic Section with Floating Badges & 3D Ornaments */}
         <div className="hero-figma-visual-area">
-          {/* Floating 3D Ornaments (Left) */}
+          {/* Floating 3D Ornaments (Left: LimeZigzag, WhiteZigzag, WhiteDonut) */}
           <div className="ornament ornament-left-zigzag">
             <LimeZigzag />
+          </div>
+          <div className="ornament ornament-left-white-zigzag">
+            <WhiteZigzag />
           </div>
           <div className="ornament ornament-left-donut">
             <WhiteDonut />
           </div>
 
-          {/* Neon Lime Circle Backdrop (Ellipse 7) */}
+          {/* Neon Lime Circle Backdrop (Apex behind student head) */}
           <div className="hero-lime-backdrop-circle" />
 
           {/* Student Photo */}
@@ -77,7 +79,7 @@ export const Hero = () => {
             />
           </div>
 
-          {/* Floating 3D Ornaments (Right) */}
+          {/* Floating 3D Ornaments (Right: LimeCylinder, WhiteCone, WhiteZigzag) */}
           <div className="ornament ornament-right-cylinder">
             <LimeCylinder />
           </div>
@@ -88,22 +90,17 @@ export const Hero = () => {
             <WhiteZigzag />
           </div>
 
-          {/* Floating Card 1: UI/UX Design (Top-Left) */}
+          {/* Floating Card 1: UI/UX Design (Top-Left of student) */}
           <div
             className="hero-overlay-card card-uiux"
             onClick={() => navigateTo('courses')}
             style={{ cursor: 'pointer' }}
           >
-            <div className="card-uiux-icon">
-              <PenTool size={20} />
-            </div>
-            <div>
-              <div className="card-uiux-title">UI/UX Design</div>
-              <div className="card-uiux-meta">200 Courses • 1000+ Students</div>
-            </div>
+            <div className="card-uiux-title">UI/UX Design</div>
+            <div className="card-uiux-meta">200 Courses • 1000+ Students</div>
           </div>
 
-          {/* Floating Card 2: Learning Progress (Top-Right) */}
+          {/* Floating Card 2: Learning Progress (Top-Right of student) */}
           <div className="hero-overlay-card card-progress">
             <div className="card-progress-title">Learning Progress</div>
             <div className="card-progress-val">55%</div>
@@ -138,6 +135,16 @@ export const Hero = () => {
               <img
                 src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=80&q=80"
                 alt="Student 4"
+                className="card-student-avatar"
+              />
+              <img
+                src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=80&q=80"
+                alt="Student 5"
+                className="card-student-avatar"
+              />
+              <img
+                src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=80&q=80"
+                alt="Student 6"
                 className="card-student-avatar"
               />
               <span className="card-avatars-badge">2K+</span>

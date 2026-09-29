@@ -7,6 +7,7 @@
 > Frontend Assessment Project for **Jr. Software Engineer (Frontend)**  
 > **Candidate Tracking ID**: `58baefd3-b9a7-45a5-a820-226111ff73ee`  
 > **GitHub Repository**: [arifarman22/DoinTechTask-ArifArman](https://github.com/arifarman22/DoinTechTask-ArifArman)  
+> **Live Deployment**: [https://dointechtaskarifarman.vercel.app](https://dointechtaskarifarman.vercel.app)  
 > **Figma Design Reference**: [ByteSpace New Check website](https://www.figma.com/design/26TBgRjmpuxudcErJsHUfy/ByteSpace-New-Check-website?node-id=0-1&p=f&t=eQOrqJmq6rMG5b6L-0)  
 > **Pull Request**: [View PR on GitHub](https://github.com/arifarman22/DoinTechTask-ArifArman/pull/new/feature/bytespace-redesign)
 

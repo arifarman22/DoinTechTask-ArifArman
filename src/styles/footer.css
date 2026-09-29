@@ -1,147 +1,231 @@
-/* Footer Styles */
-.footer {
-  background-color: var(--bg-surface);
-  border-top: 1px solid var(--border-subtle);
-  padding-top: 64px;
-  padding-bottom: 32px;
-  color: var(--text-secondary);
+/* Figma-Accurate Footer Styling */
+.figma-footer {
+  background-color: #ffffff;
+  color: #0f172a;
+  padding: 80px 0 40px 0;
+  width: 100%;
+  border-top: 1px solid #f1f5f9;
 }
 
-.footer-grid {
-  display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr 1fr 1.3fr;
-  gap: 40px;
-  margin-bottom: 56px;
+.figma-footer-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
 }
 
-.footer-brand {
+/* Top Section: Left Brand/Newsletter + Right 3 Nav Columns */
+.figma-footer-top {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 60px;
 }
 
-.footer-logo {
-  display: flex;
+/* Left Brand & Newsletter */
+.figma-footer-left {
+  max-width: 440px;
+  flex: 1;
+}
+
+.figma-footer-logo {
+  display: inline-flex;
   align-items: center;
   gap: 10px;
+  cursor: pointer;
+  user-select: none;
   margin-bottom: 16px;
 }
 
-.footer-desc {
-  font-size: 14px;
-  line-height: 1.65;
-  color: var(--text-secondary);
-  margin-bottom: 24px;
-  max-width: 320px;
+.figma-footer-brand-name {
+  font-family: var(--font-heading, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  color: #0f172a;
 }
 
-.footer-socials {
+.figma-footer-tagline {
+  font-family: var(--font-body, system-ui, sans-serif);
+  font-size: 14px;
+  line-height: 1.6;
+  color: #334155;
+  margin: 0 0 24px 0;
+  max-width: 420px;
+}
+
+/* Newsletter Form */
+.figma-footer-form {
   display: flex;
   align-items: center;
   gap: 12px;
+  flex-wrap: wrap;
 }
 
-.social-icon-btn {
-  width: 36px;
-  height: 36px;
-  border-radius: var(--radius-md);
-  border: 1px solid var(--border-subtle);
-  background-color: var(--bg-card);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--text-secondary);
-  transition: all var(--transition-fast);
+.figma-footer-input {
+  border: 1px solid #cbd5e1;
+  border-radius: 9999px;
+  padding: 12px 24px;
+  font-size: 14px;
+  color: #0f172a;
+  background-color: #ffffff;
+  outline: none;
+  width: 270px;
+  transition: all 0.2s ease;
 }
 
-.social-icon-btn:hover {
-  color: var(--primary);
-  border-color: var(--primary);
-  background-color: var(--bg-secondary);
-  transform: translateY(-2px);
+.figma-footer-input:focus {
+  border-color: #003be2;
+  box-shadow: 0 0 0 3px rgba(0, 59, 226, 0.1);
 }
 
-.footer-col-title {
-  font-size: 15px;
+.figma-footer-input::placeholder {
+  color: #94a3b8;
+}
+
+.figma-footer-btn {
+  background-color: #d4ff00;
+  color: #000000;
+  font-family: var(--font-heading, system-ui, sans-serif);
+  font-size: 14px;
   font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 18px;
-}
-
-.footer-links-list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.footer-link-item {
-  font-size: 14px;
-  color: var(--text-secondary);
+  padding: 12px 30px;
+  border-radius: 9999px;
+  border: none;
   cursor: pointer;
-  transition: color var(--transition-fast);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
-.footer-link-item:hover {
-  color: var(--primary);
+.figma-footer-btn:hover {
+  background-color: #e2ff38;
+  transform: scale(1.03);
 }
 
-/* Newsletter Input */
-.footer-newsletter-form {
+.figma-footer-disclaimer {
+  font-size: 12px;
+  line-height: 1.5;
+  color: #64748b;
+  margin-top: 14px;
+  max-width: 400px;
+}
+
+/* Right 3 Navigation Columns */
+.figma-footer-nav-grid {
+  display: flex;
+  gap: 80px;
+}
+
+.figma-footer-nav-col {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 18px;
 }
 
-.newsletter-input-wrap {
-  display: flex;
-  position: relative;
-}
-
-.newsletter-input {
-  width: 100%;
-  padding: 10px 14px;
+.figma-footer-nav-link {
+  font-family: var(--font-body, system-ui, sans-serif);
   font-size: 14px;
-  border-radius: var(--radius-md);
-  border: 1px solid var(--border-subtle);
-  background-color: var(--bg-input);
-  color: var(--text-primary);
+  font-weight: 500;
+  color: #334155;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  user-select: none;
+  white-space: nowrap;
 }
 
-.newsletter-input:focus {
-  border-color: var(--primary);
+.figma-footer-nav-link:hover {
+  color: #003be2;
 }
 
-/* Footer Bottom */
-.footer-bottom {
+/* Divider Line */
+.figma-footer-divider {
+  width: 100%;
+  height: 1px;
+  background-color: #e2e8f0;
+  margin-top: 64px;
+  margin-bottom: 28px;
+}
+
+/* Bottom Row */
+.figma-footer-bottom {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 28px;
-  border-top: 1px solid var(--border-subtle);
+  flex-wrap: wrap;
+  gap: 16px;
   font-size: 13px;
-  color: var(--text-muted);
+  color: #64748b;
 }
 
-.footer-bottom-links {
+.figma-footer-copyright {
+  color: #64748b;
+}
+
+.figma-footer-bottom-links {
   display: flex;
-  gap: 20px;
+  align-items: center;
+  gap: 24px;
 }
 
-@media (max-width: 1024px) {
-  .footer-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
+.figma-footer-bottom-link {
+  color: #334155;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  user-select: none;
 }
 
-@media (max-width: 768px) {
-  .footer-grid {
-    grid-template-columns: 1fr;
-    gap: 32px;
-  }
+.figma-footer-bottom-link:hover {
+  color: #003be2;
+}
 
-  .footer-bottom {
+/* Responsive */
+@media (max-width: 992px) {
+  .figma-footer-top {
     flex-direction: column;
+    gap: 40px;
+  }
+
+  .figma-footer-left {
+    max-width: 100%;
+  }
+
+  .figma-footer-nav-grid {
+    gap: 50px;
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 680px) {
+  .figma-footer {
+    padding: 50px 0 30px 0;
+  }
+
+  .figma-footer-form {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .figma-footer-input {
+    width: 100%;
+  }
+
+  .figma-footer-btn {
+    width: 100%;
+  }
+
+  .figma-footer-nav-grid {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .figma-footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .figma-footer-bottom-links {
+    flex-wrap: wrap;
     gap: 16px;
-    text-align: center;
   }
 }

@@ -1,17 +1,18 @@
 import { useState } from 'react';
 import { useApp } from '../../context/AppContext';
-import {
-  Layers,
-  Send,
-  CheckCircle2
-} from 'lucide-react';
-import { GithubIcon, TwitterIcon, LinkedinIcon, DiscordIcon } from './BrandIcons';
 import '../../styles/footer.css';
+
+// Neon Lime ByteSpace Emblem matching Figma
+const ByteSpaceFooterEmblem = () => (
+  <svg width="26" height="26" viewBox="0 0 32 32" fill="none">
+    <rect width="32" height="32" rx="10" fill="#D4FF00" />
+    <path d="M13 10L23 16L13 22V10Z" fill="#000000" />
+  </svg>
+);
 
 export const Footer = () => {
   const { navigateTo, setSelectedCategory, showToast } = useApp();
   const [email, setEmail] = useState('');
-  const [subscribed, setSubscribed] = useState(false);
 
   const handleSubscribe = (e) => {
     e.preventDefault();
@@ -19,190 +20,136 @@ export const Footer = () => {
       showToast('Please enter a valid email address.', 'error');
       return;
     }
-    setSubscribed(true);
-    showToast('Subscribed to ByteSpace newsletter! Check your inbox soon.', 'success');
+    showToast('Thank you for subscribing to ByteSpace updates!', 'success');
     setEmail('');
   };
 
-  const handleCategoryNav = (catId) => {
-    setSelectedCategory(catId);
-    navigateTo('courses');
+  const handleLinkClick = (action) => {
+    if (typeof action === 'string') {
+      if (action.startsWith('cat:')) {
+        setSelectedCategory(action.replace('cat:', ''));
+        navigateTo('courses');
+      } else {
+        navigateTo(action);
+      }
+    }
   };
 
   return (
-    <footer className="footer">
-      <div className="container">
-        <div className="footer-grid">
-          {/* Brand Info */}
-          <div className="footer-brand">
-            <div className="footer-logo" onClick={() => navigateTo('home')} style={{ cursor: 'pointer' }}>
-              <div
-                style={{
-                  width: '34px',
-                  height: '34px',
-                  background: 'var(--gradient-brand)',
-                  borderRadius: 'var(--radius-md)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  color: '#ffffff'
-                }}
-              >
-                <Layers size={20} />
-              </div>
-              <span style={{ fontSize: '20px', fontWeight: 800, color: 'var(--text-primary)' }}>
-                Byte<span style={{ color: 'var(--primary)' }}>Space</span>
-              </span>
+    <footer className="figma-footer">
+      <div className="figma-footer-container">
+        {/* Top: Left Brand/Newsletter + Right 3 Nav Columns */}
+        <div className="figma-footer-top">
+          {/* Left Column: Brand & Newsletter */}
+          <div className="figma-footer-left">
+            <div className="figma-footer-logo" onClick={() => navigateTo('home')}>
+              <ByteSpaceFooterEmblem />
+              <span className="figma-footer-brand-name">ByteSpace</span>
             </div>
 
-            <p className="footer-desc">
-              The modern online platform for mastering high-demand tech skills through project-driven
-              learning, 1-on-1 engineering mentorship, and certified career tracks.
+            <p className="figma-footer-tagline">
+              Stay Up to date with our latest features and releases by joining our newsletter.
             </p>
 
-            <div className="footer-socials">
-              <a
-                href="https://github.com"
-                target="_blank"
-                rel="noreferrer"
-                className="social-icon-btn"
-                aria-label="GitHub"
-              >
-                <GithubIcon size={17} />
-              </a>
-              <a
-                href="https://twitter.com"
-                target="_blank"
-                rel="noreferrer"
-                className="social-icon-btn"
-                aria-label="Twitter / X"
-              >
-                <TwitterIcon size={17} />
-              </a>
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noreferrer"
-                className="social-icon-btn"
-                aria-label="LinkedIn"
-              >
-                <LinkedinIcon size={17} />
-              </a>
-              <a
-                href="https://discord.com"
-                target="_blank"
-                rel="noreferrer"
-                className="social-icon-btn"
-                aria-label="Discord"
-              >
-                <DiscordIcon size={17} />
-              </a>
-            </div>
-          </div>
-
-          {/* Learning Tracks */}
-          <div>
-            <h4 className="footer-col-title">Learning Tracks</h4>
-            <ul className="footer-links-list">
-              <li className="footer-link-item" onClick={() => handleCategoryNav('web-dev')}>
-                Web Development
-              </li>
-              <li className="footer-link-item" onClick={() => handleCategoryNav('ui-ux')}>
-                UI/UX Design
-              </li>
-              <li className="footer-link-item" onClick={() => handleCategoryNav('ai-data')}>
-                Data Science & AI
-              </li>
-              <li className="footer-link-item" onClick={() => handleCategoryNav('cloud-devops')}>
-                Cloud & DevOps
-              </li>
-              <li className="footer-link-item" onClick={() => handleCategoryNav('mobile-dev')}>
-                Mobile App Dev
-              </li>
-            </ul>
-          </div>
-
-          {/* Resources */}
-          <div>
-            <h4 className="footer-col-title">Resources</h4>
-            <ul className="footer-links-list">
-              <li className="footer-link-item" onClick={() => navigateTo('courses')}>
-                Course Catalog
-              </li>
-              <li className="footer-link-item" onClick={() => navigateTo('home')}>
-                Student Stories
-              </li>
-              <li className="footer-link-item" onClick={() => navigateTo('home')}>
-                Mentor Network
-              </li>
-              <li className="footer-link-item" onClick={() => navigateTo('home')}>
-                Hiring Partners
-              </li>
-              <li className="footer-link-item" onClick={() => navigateTo('home')}>
-                Free Workshops
-              </li>
-            </ul>
-          </div>
-
-          {/* Company */}
-          <div>
-            <h4 className="footer-col-title">Company</h4>
-            <ul className="footer-links-list">
-              <li className="footer-link-item" onClick={() => navigateTo('home')}>
-                About Us
-              </li>
-              <li className="footer-link-item" onClick={() => navigateTo('home')}>
-                Careers (Hiring!)
-              </li>
-              <li className="footer-link-item" onClick={() => navigateTo('signup')}>
-                Become an Instructor
-              </li>
-              <li className="footer-link-item" onClick={() => navigateTo('home')}>
-                Press & News
-              </li>
-              <li className="footer-link-item" onClick={() => navigateTo('home')}>
-                Contact Support
-              </li>
-            </ul>
-          </div>
-
-          {/* Newsletter Form */}
-          <div>
-            <h4 className="footer-col-title">Stay Ahead in Tech</h4>
-            <p style={{ fontSize: '13px', color: 'var(--text-secondary)', marginBottom: '14px', lineHeight: 1.5 }}>
-              Subscribe to get free weekly coding tutorials, design breakdowns, and exclusive course discounts.
-            </p>
-
-            <form onSubmit={handleSubscribe} className="footer-newsletter-form">
+            <form onSubmit={handleSubscribe} className="figma-footer-form">
               <input
                 type="email"
-                className="newsletter-input"
-                placeholder="Enter your email..."
+                placeholder="Enter your email"
+                className="figma-footer-input"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
               />
-              <button type="submit" className="btn btn-primary btn-sm" style={{ width: '100%' }}>
-                <Send size={14} />
-                Subscribe Now
+              <button type="submit" className="figma-footer-btn">
+                Search
               </button>
             </form>
+
+            <p className="figma-footer-disclaimer">
+              By subscribing, you agree to our Privacy Policy and consent to receive updates from our
+              company.
+            </p>
+          </div>
+
+          {/* Right: 3 Nav Columns matching Figma */}
+          <div className="figma-footer-nav-grid">
+            {/* Column 1 */}
+            <div className="figma-footer-nav-col">
+              <span className="figma-footer-nav-link" onClick={() => handleLinkClick('courses')}>
+                Featured Courses
+              </span>
+              <span className="figma-footer-nav-link" onClick={() => handleLinkClick('courses')}>
+                Featured Categories
+              </span>
+              <span className="figma-footer-nav-link" onClick={() => handleLinkClick('cat:ai-data')}>
+                Business
+              </span>
+              <span className="figma-footer-nav-link" onClick={() => handleLinkClick('cat:cloud-devops')}>
+                IT
+              </span>
+              <span className="figma-footer-nav-link" onClick={() => handleLinkClick('cat:ui-ux')}>
+                Design
+              </span>
+            </div>
+
+            {/* Column 2 */}
+            <div className="figma-footer-nav-col">
+              <span className="figma-footer-nav-link" onClick={() => handleLinkClick('cat:web-dev')}>
+                Development
+              </span>
+              <span className="figma-footer-nav-link" onClick={() => handleLinkClick('cat:ui-ux')}>
+                Marketing
+              </span>
+              <span className="figma-footer-nav-link" onClick={() => handleLinkClick('courses')}>
+                Photography
+              </span>
+              <span className="figma-footer-nav-link" onClick={() => handleLinkClick('cat:ai-data')}>
+                Finance
+              </span>
+              <span className="figma-footer-nav-link" onClick={() => handleLinkClick('courses')}>
+                Sport
+              </span>
+            </div>
+
+            {/* Column 3 */}
+            <div className="figma-footer-nav-col">
+              <span className="figma-footer-nav-link" onClick={() => handleLinkClick('signup')}>
+                Become a Creator
+              </span>
+              <span className="figma-footer-nav-link" onClick={() => handleLinkClick('signup')}>
+                Affiliate Program
+              </span>
+              <span className="figma-footer-nav-link" onClick={() => showToast('Contact support: support@bytespace.com', 'info')}>
+                Contact
+              </span>
+              <span className="figma-footer-nav-link" onClick={() => showToast('Help Center is available 24/7', 'info')}>
+                Help
+              </span>
+              <span className="figma-footer-nav-link" onClick={() => handleLinkClick('home')}>
+                About
+              </span>
+            </div>
           </div>
         </div>
 
-        {/* Footer Bottom */}
-        <div className="footer-bottom">
-          <div>
-            © {new Date().getFullYear()} ByteSpace Inc. Built for modern engineers & designers.
+        {/* Divider Line */}
+        <div className="figma-footer-divider" />
+
+        {/* Bottom Row */}
+        <div className="figma-footer-bottom">
+          <div className="figma-footer-copyright">
+            © 2023 ByteSpace. All rights reserved.
           </div>
 
-          <div className="footer-bottom-links">
-            <span style={{ cursor: 'pointer' }}>Privacy Policy</span>
-            <span style={{ cursor: 'pointer' }}>Terms of Service</span>
-            <span style={{ cursor: 'pointer' }}>Cookie Settings</span>
-            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: '#10B981' }}>
-              <span style={{ width: '7px', height: '7px', borderRadius: '50%', backgroundColor: '#10B981' }} />
-              All Systems Operational
+          <div className="figma-footer-bottom-links">
+            <span className="figma-footer-bottom-link" onClick={() => showToast('Privacy Policy viewed', 'info')}>
+              Privacy Policy
+            </span>
+            <span className="figma-footer-bottom-link" onClick={() => showToast('Terms of Service viewed', 'info')}>
+              Terms of Service
+            </span>
+            <span className="figma-footer-bottom-link" onClick={() => showToast('Cookies Settings opened', 'info')}>
+              Cookies Settings
             </span>
           </div>
         </div>

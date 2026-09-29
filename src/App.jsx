@@ -8,11 +8,7 @@ import { Categories } from './components/home/Categories';
 import { FeaturedCourses } from './components/home/FeaturedCourses';
 import { GrowthAndInstructor } from './components/home/GrowthAndInstructor';
 import { CreatorStripe } from './components/home/CreatorStripe';
-import { HowItWorks } from './components/home/HowItWorks';
 import { Testimonials } from './components/home/Testimonials';
-import { Pricing } from './components/home/Pricing';
-import { FAQ } from './components/home/FAQ';
-import { CTASection } from './components/home/CTASection';
 import { CourseDetailModal } from './components/courses/CourseDetailModal';
 import { CoursesView } from './components/courses/CoursesView';
 import { LoginPage } from './components/auth/LoginPage';
@@ -35,9 +31,6 @@ export function App() {
             <GrowthAndInstructor />
             <CreatorStripe />
             <Testimonials />
-            <Pricing />
-            <FAQ />
-            <CTASection />
           </>
         )}
 

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useApp } from '../../context/AppContext';
 import { Search, PenTool, Star } from 'lucide-react';
-import studentHeroImg from '../../assets/student-hero.jpg';
+import studentHeroImg from '../../assets/student-hero.png';
 import {
   LimeZigzag,
   WhiteDonut,

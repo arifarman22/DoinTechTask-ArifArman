@@ -1,0 +1,528 @@
+/* Figma Two-Part Features Section */
+.figma-features-section {
+  position: relative;
+  padding: 90px 0 110px 0;
+  background-color: #ffffff;
+  color: #0f172a;
+  overflow: hidden;
+  width: 100%;
+  /* Ambient glow background: yellow on left, ash/slate on right */
+  background-image: 
+    radial-gradient(circle 520px at -2% 25%, rgba(226, 255, 56, 0.36) 0%, rgba(212, 255, 0, 0.16) 45%, transparent 75%),
+    radial-gradient(circle 580px at -4% 72%, rgba(234, 255, 80, 0.40) 0%, rgba(212, 255, 0, 0.15) 50%, transparent 80%),
+    radial-gradient(circle 580px at 102% 20%, rgba(185, 200, 218, 0.52) 0%, rgba(203, 213, 225, 0.22) 50%, transparent 75%),
+    radial-gradient(circle 620px at 104% 68%, rgba(175, 192, 210, 0.58) 0%, rgba(203, 213, 225, 0.20) 55%, transparent 80%);
+  background-repeat: no-repeat;
+}
+
+/* Left yellow ambient glow blob */
+.figma-features-section::before {
+  content: '';
+  position: absolute;
+  top: 15%;
+  left: -140px;
+  width: 500px;
+  height: 75%;
+  background: radial-gradient(ellipse at center, rgba(226, 255, 56, 0.45) 0%, rgba(212, 255, 0, 0.25) 45%, rgba(245, 255, 100, 0.1) 65%, transparent 80%);
+  filter: blur(85px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Right ash ambient shadow/glow blob */
+.figma-features-section::after {
+  content: '';
+  position: absolute;
+  top: 20%;
+  right: -140px;
+  width: 500px;
+  height: 70%;
+  background: radial-gradient(ellipse at center, rgba(160, 178, 198, 0.58) 0%, rgba(190, 205, 220, 0.32) 45%, rgba(226, 232, 240, 0.12) 65%, transparent 80%);
+  filter: blur(95px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.figma-features-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Block 1 & Block 2 Rows */
+.figma-feature-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 70px;
+}
+
+.figma-feature-row.row-growth {
+  margin-bottom: 120px;
+}
+
+/* Content Columns */
+.figma-feature-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.figma-feature-title {
+  font-family: var(--font-heading, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
+  font-size: 46px;
+  font-weight: 800;
+  line-height: 1.18;
+  letter-spacing: -0.025em;
+  color: #0f172a;
+  margin: 0 0 18px 0;
+}
+
+.figma-feature-desc {
+  font-family: var(--font-body, system-ui, sans-serif);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.65;
+  color: #64748b;
+  margin: 0 0 36px 0;
+  max-width: 480px;
+}
+
+/* Stats Row in Block 1 */
+.figma-stats-row {
+  display: flex;
+  align-items: center;
+  gap: 46px;
+}
+
+.figma-stat-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.figma-stat-val {
+  font-family: var(--font-heading, system-ui, sans-serif);
+  font-size: 36px;
+  font-weight: 800;
+  color: #003be2;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 4px;
+}
+
+.figma-stat-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #64748b;
+}
+
+/* 4 Feature Checklist in Block 2 */
+.figma-checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.figma-check-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.figma-check-icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #003be2;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.figma-check-text {
+  font-size: 16px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+/* Visual Graphic Column 1 (Student + Cards + Ornament) */
+.figma-growth-visual {
+  position: relative;
+  width: 100%;
+  height: 480px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+/* Background mini course card */
+.figma-mini-course-card {
+  position: absolute;
+  left: 0;
+  bottom: 30px;
+  width: 250px;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  padding: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+  z-index: 1;
+}
+
+.figma-mini-card-thumb {
+  width: 100%;
+  height: 110px;
+  border-radius: 12px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.figma-mini-card-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 2px;
+}
+
+.figma-mini-card-instructor {
+  font-size: 11px;
+  color: #2563eb;
+  margin-bottom: 8px;
+}
+
+.figma-mini-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.figma-mini-card-price {
+  font-size: 14px;
+  font-weight: 800;
+  color: #003be2;
+}
+
+/* Student photo in growth visual */
+.figma-growth-student-img {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  max-height: 480px;
+  object-fit: contain;
+  filter: drop-shadow(0 14px 24px rgba(0, 0, 0, 0.15));
+  margin-left: 50px;
+}
+
+/* Floating 3D Lime Zigzag */
+.figma-growth-zigzag {
+  position: absolute;
+  top: 15px;
+  right: 10px;
+  z-index: 3;
+  animation: floatOrnament 6s ease-in-out infinite alternate;
+}
+
+/* Floating Progress Card */
+.figma-progress-card {
+  position: absolute;
+  right: -10px;
+  top: 100px;
+  z-index: 4;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 14px 18px;
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.12);
+  min-width: 160px;
+  animation: floatFigma 4.5s ease-in-out infinite alternate;
+}
+
+.figma-progress-card-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: #64748b;
+  margin-bottom: 4px;
+}
+
+.figma-progress-card-val {
+  font-size: 32px;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+
+.figma-progress-card-track {
+  width: 100%;
+  height: 6px;
+  background-color: #e2e8f0;
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.figma-progress-card-fill {
+  width: 55%;
+  height: 100%;
+  background-color: #d4ff00;
+  border-radius: 9999px;
+}
+
+/* Visual Graphic Column 2 (Female Instructor + Revenue Cards + Happy Students) */
+.figma-manage-visual {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  border-radius: 24px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.figma-manage-frame-bg {
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  background: linear-gradient(145deg, #f8fafc 0%, #edf2f7 100%);
+  border: 1px solid #e2e8f0;
+  z-index: 1;
+}
+
+.figma-manage-instructor-img {
+  position: relative;
+  z-index: 2;
+  height: 96%;
+  max-height: 480px;
+  object-fit: contain;
+  filter: drop-shadow(0 14px 24px rgba(0, 0, 0, 0.12));
+}
+
+/* Revenue Card 1 */
+.figma-revenue-card-1 {
+  position: absolute;
+  top: 24px;
+  left: -12px;
+  z-index: 3;
+  background-color: #003be2;
+  color: #ffffff;
+  border-radius: 14px;
+  padding: 14px 18px;
+  box-shadow: 0 10px 25px rgba(0, 59, 226, 0.35);
+  min-width: 160px;
+  animation: floatFigma 4.5s ease-in-out infinite alternate;
+}
+
+.figma-revenue-card-2 {
+  position: absolute;
+  top: 140px;
+  left: -20px;
+  z-index: 3;
+  background-color: #003be2;
+  color: #ffffff;
+  border-radius: 14px;
+  padding: 14px 18px;
+  box-shadow: 0 10px 25px rgba(0, 59, 226, 0.35);
+  min-width: 160px;
+  animation: floatFigma 5s ease-in-out infinite alternate 1.5s;
+}
+
+.figma-rev-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  font-weight: 500;
+  opacity: 0.9;
+  margin-bottom: 4px;
+}
+
+.figma-rev-val {
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+
+.figma-rev-bar-track {
+  width: 100%;
+  height: 5px;
+  background-color: rgba(255, 255, 255, 0.25);
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.figma-rev-bar-fill {
+  width: 70%;
+  height: 100%;
+  background-color: #d4ff00;
+  border-radius: 9999px;
+}
+
+.figma-rev-pill-badge {
+  background-color: #d4ff00;
+  color: #000000;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 9999px;
+  display: inline-block;
+}
+
+/* Floating 3D Lime Zigzag in Block 2 */
+.figma-manage-zigzag {
+  position: absolute;
+  top: 90px;
+  right: 15px;
+  z-index: 3;
+  animation: floatOrnament 6s ease-in-out infinite alternate 2s;
+}
+
+/* Happy Students Card in Block 2 */
+.figma-happy-students-card {
+  position: absolute;
+  bottom: 24px;
+  right: -10px;
+  z-index: 3;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 14px 18px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+  animation: floatFigma 4.8s ease-in-out infinite alternate 2.5s;
+}
+
+.figma-happy-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 3px;
+}
+
+.figma-happy-rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #64748b;
+  margin-bottom: 8px;
+}
+
+.figma-happy-rating strong {
+  color: #0f172a;
+}
+
+.figma-happy-avatars {
+  display: flex;
+  align-items: center;
+}
+
+.figma-happy-avatar {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  margin-left: -7px;
+  object-fit: cover;
+}
+
+.figma-happy-avatar:first-child {
+  margin-left: 0;
+}
+
+.figma-happy-badge {
+  background-color: #d4ff00;
+  color: #000000;
+  font-size: 10px;
+  font-weight: 800;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #ffffff;
+  margin-left: -7px;
+}
+
+/* Animations */
+@keyframes floatFigma {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-8px); }
+}
+
+@keyframes floatOrnament {
+  0% { transform: translateY(0px) rotate(0deg); }
+  100% { transform: translateY(-12px) rotate(4deg); }
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .figma-feature-row {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .figma-feature-row.row-growth {
+    margin-bottom: 80px;
+  }
+
+  .figma-feature-title {
+    font-size: 36px;
+  }
+
+  .figma-feature-desc {
+    max-width: 100%;
+  }
+
+  .figma-revenue-card-1,
+  .figma-revenue-card-2 {
+    left: 10px;
+  }
+
+  .figma-happy-students-card {
+    right: 10px;
+  }
+
+  .figma-progress-card {
+    right: 10px;
+  }
+
+  .figma-mini-course-card {
+    left: 10px;
+  }
+}
+
+@media (max-width: 680px) {
+  .figma-features-section {
+    padding: 50px 0 70px 0;
+  }
+
+  .figma-feature-title {
+    font-size: 28px;
+  }
+
+  .figma-stats-row {
+    gap: 24px;
+  }
+
+  .figma-stat-val {
+    font-size: 28px;
+  }
+
+  .figma-growth-visual,
+  .figma-manage-visual {
+    height: 400px;
+  }
+
+  .figma-mini-course-card {
+    width: 200px;
+    padding: 8px;
+  }
+
+  .figma-growth-student-img {
+    margin-left: 20px;
+  }
+}

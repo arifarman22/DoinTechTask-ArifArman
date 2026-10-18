@@ -1,0 +1,181 @@
+/* Figma Testimonials Section Styling */
+.figma-testimonials-section {
+  position: relative;
+  padding: 100px 0 110px 0;
+  background-color: #ffffff;
+  color: #0f172a;
+  overflow: hidden;
+  width: 100%;
+  /* Ambient glow background: light lime/yellow on top-right, soft periwinkle blue on bottom-left */
+  background-image: 
+    radial-gradient(circle 550px at 85% 15%, rgba(226, 255, 56, 0.35) 0%, rgba(212, 255, 0, 0.12) 45%, transparent 75%),
+    radial-gradient(circle 500px at 5% 85%, rgba(190, 215, 255, 0.45) 0%, rgba(218, 232, 255, 0.15) 50%, transparent 75%);
+  background-repeat: no-repeat;
+}
+
+/* Ambient glow pseudo-elements */
+.figma-testimonials-section::before {
+  content: '';
+  position: absolute;
+  top: 5%;
+  right: -80px;
+  width: 500px;
+  height: 600px;
+  background: radial-gradient(ellipse at center, rgba(226, 255, 56, 0.38) 0%, rgba(212, 255, 0, 0.18) 45%, transparent 75%);
+  filter: blur(90px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.figma-testimonials-section::after {
+  content: '';
+  position: absolute;
+  bottom: 5%;
+  left: -80px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(ellipse at center, rgba(180, 210, 255, 0.45) 0%, rgba(210, 230, 255, 0.2) 45%, transparent 75%);
+  filter: blur(90px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.figma-testimonials-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Split Header (Headline Left, Paragraph Right) */
+.figma-testimonials-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 56px;
+}
+
+.figma-testimonials-headline {
+  font-family: var(--font-heading, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
+  font-size: 46px;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  color: #0f172a;
+  margin: 0;
+  flex: 1;
+  max-width: 540px;
+}
+
+.figma-testimonials-intro {
+  font-family: var(--font-body, system-ui, sans-serif);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.65;
+  color: #64748b;
+  margin: 0;
+  flex: 1;
+  max-width: 520px;
+}
+
+/* 3 Testimonials Grid */
+.figma-testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+/* Testimonial Card */
+.figma-testimonial-card {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 24px;
+  padding: 34px 28px 36px 28px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.figma-testimonial-card:hover {
+  transform: translateY(-6px);
+  border-color: #cbd5e1;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08);
+}
+
+/* Avatar */
+.figma-t-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  margin-bottom: 16px;
+}
+
+/* Author Name & Role */
+.figma-t-author-name {
+  font-family: var(--font-heading, system-ui, sans-serif);
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 3px 0;
+}
+
+.figma-t-author-role {
+  font-size: 13px;
+  font-weight: 500;
+  color: #2563eb;
+  margin: 0 0 20px 0;
+}
+
+/* Quote */
+.figma-t-quote {
+  font-family: var(--font-body, system-ui, sans-serif);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.68;
+  color: #475569;
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .figma-testimonials-header {
+    flex-direction: column;
+    gap: 18px;
+    margin-bottom: 40px;
+  }
+
+  .figma-testimonials-headline {
+    font-size: 36px;
+    max-width: 100%;
+  }
+
+  .figma-testimonials-intro {
+    max-width: 100%;
+  }
+
+  .figma-testimonials-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 680px) {
+  .figma-testimonials-section {
+    padding: 60px 0 70px 0;
+  }
+
+  .figma-testimonials-headline {
+    font-size: 28px;
+  }
+
+  .figma-testimonial-card {
+    padding: 26px 20px;
+  }
+}
